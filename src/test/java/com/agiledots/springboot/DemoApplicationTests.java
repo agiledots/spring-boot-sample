@@ -1,4 +1,4 @@
-package jp.co.reteck;
+package com.agiledots.springboot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
