@@ -1,4 +1,4 @@
-package com.agiledots.springboot.controller;
+package com.agiledots.springboot.common.controller;
 
 import org.springframework.stereotype.Controller;
 
@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 public class DemoController {
 
 	public String index() {
-
 		return "index";
 	}
 

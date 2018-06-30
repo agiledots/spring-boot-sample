@@ -1,4 +1,4 @@
-package com.agiledots.springboot.config;
+package com.agiledots.springboot.common.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
