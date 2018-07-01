@@ -9,11 +9,16 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/map")
 public class MapController {
 
-	@RequestMapping("/index")
-	public String index() {
-
-		return "map/index";
+	@RequestMapping("/sample1")
+	public String sample1() {
+		return "map/sample1";
 	}
+	
+	@RequestMapping("/sample2")
+	public String sample2() {
+		return "map/sample2";
+	}
+	
 
 	@RequestMapping("/detail/{id}")
 	public ModelAndView detail(@PathVariable("id") String id) {

@@ -16,7 +16,7 @@ public class DataApiController {
 	@RequestMapping("/marker")
 	public List<Location> marker() {
 		List<Location> locations = new ArrayList<Location>();
-		for (int i = 1; i <= 100; i++) {
+		for (int i = 1; i <= 1000; i++) {
 			Location location = new Location();
 			location.setId("R" + i);
 			// 35.6536122, 139.704882
