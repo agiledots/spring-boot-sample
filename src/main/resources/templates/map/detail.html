@@ -1,8 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+
+<script type="text/javascript" th:src="@{/vendors/jquery/jquery-3.3.1.min.js}"></script>
+
+<script type="text/javascript" th:src="@{/vendors/fancybox/jquery.fancybox.pack.js}"></script>
+
+<link rel="stylesheet" th:href="@{/vendors/fancybox/jquery.fancybox.css}" type="text/css" ></link>
+
+<!-- Add Thumbnail helper (this is optional) -->
+<link rel="stylesheet" type="text/css" th:href="@{/vendors/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7}" ></link>
+
+<script type="text/javascript" th:src="@{/vendors/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7}"></script>
+
+
+<style>
+.checkbox {
+	line-height: 30px;
+}
+</style>
+
+
+<script type="text/javascript">
+$(function() {
+	$('.fancybox-thumbs').fancybox({
+		prevEffect : 'none',
+		nextEffect : 'none',
+
+		closeBtn  : false,
+		arrows    : false,
+		nextClick : true,
+
+		helpers : {
+			thumbs : {
+				width  : 50,
+				height : 50
+			}
+		}
+	});
+});
+
+</script>
+
 </head>
 <body>
+
+
 
 
 <div class="card" style="width: 30rem;">
@@ -20,28 +63,33 @@
 			<!--  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number  -->
 		
 		  <div class="form-group row">
-		    
-		     <label for="" class="col-sm-2 col-form-label">状态</label> 
-		    
-		    <div class="col-sm-3" style="vertical-align: middle;">
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-				  <label class="form-check-label" for="inlineCheckbox1">AAAAAAAAA</label>
-				</div>
-		    </div>
-		    <div class="col-sm-3">
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-				  <label class="form-check-label" for="inlineCheckbox2">BBBBBBBBB</label>
-				</div>
-		    </div>
-		    <div class="col-sm-3">
-				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-				  <label class="form-check-label" for="inlineCheckbox3">CCCCCCCCC</label>
-				</div>
-		    </div>
+		    <label for="" class="col-md-2 col-form-label">Status</label>
+			  <div class="form-row col-md-10">
+			    <div class="col-3" style="padding: 5px;">
+				    <div class="form-check mb-2">
+				        <input class="form-check-input" type="checkbox" id="status1">
+				        <label class="form-check-label" for="status1">status1</label>
+			        </div>
+			    </div>
+			    
+			    <div class="col-3" style="padding: 5px;">
+				    <div class="form-check mb-2">
+				        <input class="form-check-input" type="checkbox" id="status1">
+				        <label class="form-check-label" for="status1">status1</label>
+			        </div>
+			    </div>
+			    
+			    <div class="col-3" style="padding: 5px;">
+				    <div class="form-check mb-2">
+				        <input class="form-check-input" type="checkbox" id="status1">
+				        <label class="form-check-label" for="status1">status1</label>
+			        </div>
+			    </div>
+			    
+			  </div>
 		  </div>
+		     
+		     
 		  
 		  <div class="form-group row">
 		    <label for="" class="col-md-2 col-form-label">上</label>
@@ -60,7 +108,6 @@
 			    </div>
 			  </div>
 		  </div>
-		  <hr/>
 		  
 		<div class="form-group row">
 			<label for="" class="col-md-2 col-form-label">中</label>
@@ -91,80 +138,80 @@
 			  </div>
 			</div>
 		</div>
-		  
-		  
-		  <div class="form-row">
-		    <div class="form-group col-md-3">
-		      <label for="middle1">中</label>
-		      <input type="number" class="form-control form-control-sm" id="middle1" step="0.1" placeholder="mm">
-		    </div>
-		    <div class="form-group col-md-3">
-		      <label for="middle2">&nbsp;</label>
-		      <input type="number" class="form-control form-control-sm" id="middle2" step="0.1" placeholder="mm">
-		    </div>
-		    <div class="form-group col-md-3">
-		      <label for="middle3">&nbsp;</label>
-		      <input type="number" class="form-control form-control-sm" id="middle3" step="0.1" placeholder="mm">
-		    </div>
-		    <div class="form-group col-md-3">
-		      <label for="middle4">&nbsp;</label>
-		      <input type="number" class="form-control form-control-sm" id="middle4" step="0.1" placeholder="mm">
-		    </div>
-		    <div class="form-group col-md-3">
-		      <input type="number" class="form-control form-control-sm" id="middle5" step="0.1" placeholder="mm">
-		    </div>
-		    <div class="form-group col-md-3">
-		      <input type="number" class="form-control form-control-sm" id="middle6" step="0.1" placeholder="mm">
-		    </div>
-		    <div class="form-group col-md-3">
-		      <input type="number" class="form-control form-control-sm" id="middle7" step="0.1" placeholder="mm">
-		    </div>
-		    <div class="form-group col-md-3">
-		      <input type="number" class="form-control form-control-sm" id="middle8" step="0.1" placeholder="mm">
-		    </div>
+		
+		  <div class="form-group row">
+		    <label for="" class="col-md-2 col-form-label">下</label>
+			  <div class="form-row col-md-10">
+			    <div class="col">
+			      <input type="number" class="form-control form-control-sm" id="bottom1" step="0.1" placeholder="mm">
+			    </div>
+			    <div class="col">
+			      <input type="number" class="form-control form-control-sm" id="bottom2" step="0.1" placeholder="mm">
+			    </div>
+			    <div class="col">
+			      <input type="number" class="form-control form-control-sm" id="bottom3" step="0.1" placeholder="mm">
+			    </div>
+			    <div class="col">
+			      <input type="number" class="form-control form-control-sm" id="bottom4" step="0.1" placeholder="mm">
+			    </div>
+			  </div>
 		  </div>
 		  
-
-		  <div class="form-row">
-		    <div class="form-group col-md-3">
-		      <label for="bottom1">下</label>
-		      <input type="number" class="form-control form-control-sm" id="bottom1" step="0.1" placeholder="mm">
-		    </div>
-		    <div class="form-group col-md-3">
-		      <label for="bottom2">&nbsp;</label>
-		      <input type="number" class="form-control form-control-sm" id="bottom2" step="0.1" placeholder="mm">
-		    </div>
-		    <div class="form-group col-md-3">
-		      <label for="bottom3">&nbsp;</label>
-		      <input type="number" class="form-control form-control-sm" id="bottom3" step="0.1" placeholder="mm">
-		    </div>
-		    <div class="form-group col-md-3">
-		      <label for="bottom4">&nbsp;</label>
-		      <input type="number" class="form-control form-control-sm" id="bottom4" step="0.1" placeholder="mm">
-		    </div>
+		  <div class="form-group row">
+		    <label for="" class="col-md-2 col-form-label">memo</label>
+			  <div class="form-row col-md-10">
+				<div class="col">
+			      	<textarea class="form-control form-control-sm" id="memo" rows="2"></textarea>
+		      	</div>
+			  </div>
 		  </div>
 		  
-		  
-		  <div class="form-row">
-		    <div class="form-group col-md-12">
-		      <label for="bottom1">memo</label>
-		      <textarea class="form-control form-control-sm" id="memo" rows="2"></textarea>
-		    </div>
+		  <div class="form-group">
+		  	<div class="col-md-12">
+			<button type="submit" class="btn btn-primary btn-sm float-right">Sign in</button>
+			</div>
 		  </div>
-
-
+	  </form>
     
   </div>
   
+  
   <div class="card-body">
-<!-- 
+  	<a class="fancybox-thumbs" data-fancybox-group="thumb" href="http://farm4.staticflickr.com/3745/8971419780_cb88b22947_b.jpg" title="">
+		<img width="60px" height="60px" src="http://farm4.staticflickr.com/3745/8971419780_cb88b22947_b.jpg" class="rounded" alt="...">
+	</a>
+		
+	<a class="fancybox-thumbs" data-fancybox-group="thumb" href="http://farm9.staticflickr.com/8366/8483546751_86494ae914_b.jpg" title="">
+		<img width="60px" height="60px" src="http://farm9.staticflickr.com/8366/8483546751_86494ae914_b.jpg" class="rounded" alt="...">
+	</a>
+	
+	<a class="fancybox-thumbs" data-fancybox-group="thumb" href="http://farm9.staticflickr.com/8481/8215602321_69d9939b8b_b.jpg" title="">
+		<img width="60px" height="60px" src="http://farm9.staticflickr.com/8481/8215602321_69d9939b8b_b.jpg" class="rounded" alt="...">
+	</a>
+	
+	<a class="fancybox-thumbs" data-fancybox-group="thumb" href="http://farm8.staticflickr.com/7412/8732133694_0c7e400022_b.jpg" title="">
+		<img width="60px" height="60px" src="http://farm8.staticflickr.com/7412/8732133694_0c7e400022_b.jpg" class="rounded" alt="...">
+	</a>
+	
+	<a class="fancybox-thumbs" data-fancybox-group="thumb" href="http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg" title="">
+		<img width="60px" height="60px" src="http://farm6.staticflickr.com/5614/15602332537_bae1aaccd8_b.jpg" class="rounded" alt="...">
+	</a>
+	
+	<a class="fancybox-thumbs" data-fancybox-group="thumb" href="http://farm8.staticflickr.com/7404/12868632153_b0a5718c22_b.jpg" title="">
+		<img width="60px" height="60px" src="http://farm8.staticflickr.com/7404/12868632153_b0a5718c22_b.jpg" class="rounded" alt="...">
+	</a>
+	
+  </div>
+  
+  <!-- 
+  <div class="card-body">
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
 		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 		    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 		    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 		  </ol>
-		  <div class="carousel-inner">
+		  <div class="carousel-inner" style="height: 100px">
 		    <div class="carousel-item active">
 		      <img class="d-block w-100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1645334b6d9%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1645334b6d9%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.421875%22%20y%3D%2296.2390625%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="First slide">
 		    </div>
@@ -185,9 +232,8 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
- -->
   </div>
-  
+   -->
   
   
 </div>

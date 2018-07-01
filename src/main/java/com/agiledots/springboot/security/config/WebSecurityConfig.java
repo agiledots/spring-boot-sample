@@ -27,6 +27,7 @@ import com.agiledots.springboot.security.service.DemoUserDetailService;
 //使用@EnableGlobalMethodSecurity(prePostEnabled = true)
 // 这个注解，可以开启security的注解，我们可以在需要控制权限的方法上面使用@PreAuthorize，@PreFilter这些注解。
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	
 
     //@Autowired
     //LightSwordUserDetailService lightSwordUserDetailService;
@@ -45,29 +46,34 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //super.configure(http);
+    	// super.configure(http);
+    	
         http.csrf().disable();
 
         http.authorizeRequests()
-            .antMatchers("/").permitAll()
-            .antMatchers("/map", "/map/**").permitAll()
+            .antMatchers("/**", "/map/**").permitAll()
+            .antMatchers(
+            		"/vendors/**",
+            		"/fancybox/**", 
+            		"/css/**", 
+            		"/dist/**",
+            		"/fonts/**", 
+            		"/js/**" ).permitAll()
             
-            .antMatchers("/webjars/**", "/bootstrap/**", "/css/**", "/dist/**", "/fonts/**", "/js/**" ).permitAll() 
             .anyRequest().authenticated().and()
             .formLogin().loginPage("/login")// 登录url请求路径
             .defaultSuccessUrl("/index").permitAll().and() // 登录成功跳转路径url
             .logout().permitAll();
 
         http.logout().logoutSuccessUrl("/"); // 退出默认跳转页面
-
     }
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web
-            .ignoring()
-            .antMatchers("/resourcesDir/**");
-    }
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web
+//            .ignoring()
+//            .antMatchers("/vendors/**");
+//    }
 
     
     @Override
