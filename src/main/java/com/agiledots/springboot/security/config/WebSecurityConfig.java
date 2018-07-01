@@ -50,7 +50,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
             .antMatchers("/").permitAll()
-            .antMatchers("/bootstrap/**", "/css/**", "/dist/**", "/fonts/**", "/js/**" ).permitAll() 
+            .antMatchers("/map", "/map/**").permitAll()
+            
+            .antMatchers("/webjars/**", "/bootstrap/**", "/css/**", "/dist/**", "/fonts/**", "/js/**" ).permitAll() 
             .anyRequest().authenticated().and()
             .formLogin().loginPage("/login")// 登录url请求路径
             .defaultSuccessUrl("/index").permitAll().and() // 登录成功跳转路径url

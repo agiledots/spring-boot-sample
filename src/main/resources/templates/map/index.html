@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{layouts/layout}">
+<head>
+<title>Home Page</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<link rel="stylesheet"
+	href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+	integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+	crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+	integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+	crossorigin=""></script>
+
+
+<style>
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+#mapid {
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+<script>
+$(function() {
+	
+	// https://leafletjs.com/examples/quick-start/
+	
+	// set map center
+	var map = L.map('mapid').setView([35.6536122, 139.794882], 13);
+
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox.streets'
+	}).addTo(map);
+	
+	
+	$.ajax({
+		method: "GET",
+		url: "/map/marker",
+		data: { }
+	})
+	.done(function(data) {
+		console.log("marker count :" + data.length);
+		
+		data.forEach(function(d){
+			// console.log(d);
+			var marker = L.marker([ d.latitude, d.longitude ]).addTo(map);
+			marker.id = d.id;
+			
+			
+			// marker click event 
+			marker.on("click", function(e) {
+			    $.get( "/map/detail/" + marker.id , function( data ) {
+					var customPopup = data;
+
+				    // specify popup options 
+				    var customOptions =
+				        {
+				        'maxWidth': '600',
+				        'className' : 'custom',
+				        'closeButton': false
+				        }
+
+					marker.bindPopup(customPopup,customOptions).openPopup();
+
+		    	});
+			});
+
+			marker.on("popupopen", function(e) {
+				console.log("popupopen " + new Date());
+			})
+
+			marker.on("popupclose", function(e) {
+				console.log("popupclose " + new Date());
+				this.unbindPopup();
+			})
+			
+			
+		})
+		
+		
+	}).fail(function(data) {
+		alert("error");
+	})
+
+	
+// 		// add maker to map
+// 		var marker = L.marker([ 35.6536122, 139.794882 ]).addTo(map);
+// 		marker.id = "R001";
+
+// 		console.log(marker);
+
+// 		// click map event
+// 		map.on('click', function(e) {
+// 			// 		var popup = L.popup();
+// 			// 		popup
+// 			//         .setLatLng(e.latlng)
+// 			//         .setContent("You clicked the map at " + e.latlng.toString())
+// 			//         .openOn(map);
+
+// 			var newMarker = new L.marker(e.latlng).addTo(map);
+
+// 		});
+
+// 				this.bindPopup(this.id
+// 						+ "<br/><b>Hello world!</b><br>I am a popup. <br/>"
+// 						+ new Date()); //
+
+				// show popup windows to the map
+// 				var popup = L.popup().setLatLng(e.latlng).setContent(
+// 						"I am a standalone popup.").openOn(map);
+
+		// https://leafletjs.com/reference-1.3.0.html
+
+	})
+</script>
+
+</head>
+<body>
+
+	<div
+		class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light h-100 w-100"
+		layout:fragment="content">
+
+		<div id="mapid"></div>
+		
+		
+		<div id= "card" class="card" style="width: 18rem; display:none">
+		  <div class="card-body">
+		    <h5 class="card-title">Card title</h5>
+		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+		    <a href="#" class="btn btn-primary">Go somewhere</a>
+		  </div>
+		</div>
+
+
+	</div>
+
+</body>
+</html>
