@@ -5,17 +5,159 @@
 <body>
 
 
-<div class="card" style="width: 25rem;">
+<div class="card" style="width: 30rem;">
+<!-- 
   <div class="card-body">
   	<h class="card-text" th:text="${id}"></h>
   </div>
+ -->
   
   <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<!--     <p class="card-text">Result</p> -->
+
+
+		<form>
+			<!--  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number  -->
+		
+		  <div class="form-group row">
+		    
+		     <label for="" class="col-sm-2 col-form-label">状态</label> 
+		    
+		    <div class="col-sm-3" style="vertical-align: middle;">
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+				  <label class="form-check-label" for="inlineCheckbox1">AAAAAAAAA</label>
+				</div>
+		    </div>
+		    <div class="col-sm-3">
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+				  <label class="form-check-label" for="inlineCheckbox2">BBBBBBBBB</label>
+				</div>
+		    </div>
+		    <div class="col-sm-3">
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+				  <label class="form-check-label" for="inlineCheckbox3">CCCCCCCCC</label>
+				</div>
+		    </div>
+		  </div>
+		  
+		  <div class="form-group row">
+		    <label for="" class="col-md-2 col-form-label">上</label>
+			  <div class="form-row col-md-10">
+			    <div class="col">
+			      <input type="number" class="form-control form-control-sm" id="top1" step="0.1" placeholder="mm">
+			    </div>
+			    <div class="col">
+			      <input type="number" class="form-control form-control-sm" id="top2" step="0.1" placeholder="mm">
+			    </div>
+			    <div class="col">
+			      <input type="number" class="form-control form-control-sm" id="top3" step="0.1" placeholder="mm">
+			    </div>
+			    <div class="col">
+			      <input type="number" class="form-control form-control-sm" id="top4" step="0.1" placeholder="mm">
+			    </div>
+			  </div>
+		  </div>
+		  <hr/>
+		  
+		<div class="form-group row">
+			<label for="" class="col-md-2 col-form-label">中</label>
+			<div class="form-row col-md-10">
+			  <div class="col-3">
+			    <input type="number" class="form-control form-control-sm" id="band1" step="0.1" placeholder="mm">
+			  </div>
+			  <div class="col-3">
+			    <input type="number" class="form-control form-control-sm" id="band2" step="0.1" placeholder="mm">
+			  </div>
+			  <div class="col-3">
+			    <input type="number" class="form-control form-control-sm" id="band3" step="0.1" placeholder="mm">
+			  </div>
+			  <div class="col-3">
+			    <input type="number" class="form-control form-control-sm" id="band4" step="0.1" placeholder="mm">
+			  </div>
+			  <div class="col">
+			    <input type="number" class="form-control form-control-sm" id="band5" step="0.1" placeholder="mm">
+			  </div>
+			  <div class="col">
+			    <input type="number" class="form-control form-control-sm" id="band6" step="0.1" placeholder="mm">
+			  </div>
+			  <div class="col">
+			    <input type="number" class="form-control form-control-sm" id="band7" step="0.1" placeholder="mm">
+			  </div>
+			  <div class="col">
+			    <input type="number" class="form-control form-control-sm" id="band8" step="0.1" placeholder="mm">
+			  </div>
+			</div>
+		</div>
+		  
+		  
+		  <div class="form-row">
+		    <div class="form-group col-md-3">
+		      <label for="middle1">中</label>
+		      <input type="number" class="form-control form-control-sm" id="middle1" step="0.1" placeholder="mm">
+		    </div>
+		    <div class="form-group col-md-3">
+		      <label for="middle2">&nbsp;</label>
+		      <input type="number" class="form-control form-control-sm" id="middle2" step="0.1" placeholder="mm">
+		    </div>
+		    <div class="form-group col-md-3">
+		      <label for="middle3">&nbsp;</label>
+		      <input type="number" class="form-control form-control-sm" id="middle3" step="0.1" placeholder="mm">
+		    </div>
+		    <div class="form-group col-md-3">
+		      <label for="middle4">&nbsp;</label>
+		      <input type="number" class="form-control form-control-sm" id="middle4" step="0.1" placeholder="mm">
+		    </div>
+		    <div class="form-group col-md-3">
+		      <input type="number" class="form-control form-control-sm" id="middle5" step="0.1" placeholder="mm">
+		    </div>
+		    <div class="form-group col-md-3">
+		      <input type="number" class="form-control form-control-sm" id="middle6" step="0.1" placeholder="mm">
+		    </div>
+		    <div class="form-group col-md-3">
+		      <input type="number" class="form-control form-control-sm" id="middle7" step="0.1" placeholder="mm">
+		    </div>
+		    <div class="form-group col-md-3">
+		      <input type="number" class="form-control form-control-sm" id="middle8" step="0.1" placeholder="mm">
+		    </div>
+		  </div>
+		  
+
+		  <div class="form-row">
+		    <div class="form-group col-md-3">
+		      <label for="bottom1">下</label>
+		      <input type="number" class="form-control form-control-sm" id="bottom1" step="0.1" placeholder="mm">
+		    </div>
+		    <div class="form-group col-md-3">
+		      <label for="bottom2">&nbsp;</label>
+		      <input type="number" class="form-control form-control-sm" id="bottom2" step="0.1" placeholder="mm">
+		    </div>
+		    <div class="form-group col-md-3">
+		      <label for="bottom3">&nbsp;</label>
+		      <input type="number" class="form-control form-control-sm" id="bottom3" step="0.1" placeholder="mm">
+		    </div>
+		    <div class="form-group col-md-3">
+		      <label for="bottom4">&nbsp;</label>
+		      <input type="number" class="form-control form-control-sm" id="bottom4" step="0.1" placeholder="mm">
+		    </div>
+		  </div>
+		  
+		  
+		  <div class="form-row">
+		    <div class="form-group col-md-12">
+		      <label for="bottom1">memo</label>
+		      <textarea class="form-control form-control-sm" id="memo" rows="2"></textarea>
+		    </div>
+		  </div>
+
+
+    
   </div>
   
   <div class="card-body">
-
+<!-- 
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
 		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -43,7 +185,7 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
-
+ -->
   </div>
   
   
